@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<tr>
+    <td width='70' height='30' align='right'><span class="red">*</span> 手机：</td>
+    <td width='198' align='center'><input name="tgmo" type="text" class="tcinp" id="tgmo" size="15"/></td>
+    <td><span class="gray">用房乐网会员登录名可获取5房乐币
+</span></td>
+  </tr>
+  <script type="text/javascript">
+$(function(){
+ 
+$('#tgmo').blur(function(){
+ $.post('post.php?action=check',{'tgmo':$('tgmo').val()},function(data)
+ {
+  if( data==0 )
+  {
+   $('#sy_a').show();
+   $('#autoregister').val(1); 
+  }
+  else
+  {
+   $('#sy_a').hide();
+   $('#autoregister').val(0); 
+  }
+  
+ });
+})
+  
+});
+</script>
+</body>
+</html>
